@@ -1,10 +1,15 @@
 <script lang="ts">
   import * as colorPicker from "@zag-js/color-picker"
-  import { normalizeProps, useMachine } from "$lib/index"
+  import { normalizeProps } from "$lib/normalize-props";
+  import { useMachine } from "$lib/use-machine.svelte";
   import serialize from "form-serialize"
-  import { unstate } from "svelte";
+  import { colorPickerControls } from "$lib/controls";
+  import { useControls } from "$lib/use-controls.svelte";
+  import Toolbar from "$lib/components/Toolbar.svelte";
 
   const presets = ["#f47373", "#697689"]
+
+  const controls = useControls(colorPickerControls)
 
   const machine = useMachine(colorPicker.machine({ 
       id: "1", 
@@ -14,11 +19,7 @@
     }),
   )
 
-  console.log(machine.state.context.areaValue.getChannels()) // this works
-  console.log(unstate(machine.state).context.areaValue.getChannels(), 'unstate') // this works
-
-  // const api = $derived(colorPicker.connect(machine.state, machine.send, normalizeProps)) // this works
-  const api = $derived(colorPicker.connect(unstate(machine.state), machine.send, normalizeProps)) // this doesn't work
+  const api = $derived(colorPicker.connect(machine.state, machine.send, normalizeProps))
 </script>
 
 <main class="color-picker">
@@ -120,6 +121,8 @@
     <button type="reset">Reset</button>
   </form>
 </main>
+
+<Toolbar {controls} {machine} state={machine.state} />
 
 {#snippet EyeDropIcon()}
 <svg

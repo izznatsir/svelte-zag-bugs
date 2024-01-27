@@ -11,12 +11,18 @@ dependencies:
   '@zag-js/core':
     specifier: ^0.33.2
     version: 0.33.2
+  '@zag-js/dom-query':
+    specifier: ^0.33.2
+    version: 0.33.2
   '@zag-js/types':
     specifier: ^0.33.2
     version: 0.33.2
   form-serialize:
     specifier: ^0.7.2
     version: 0.7.2
+  json-format-highlight:
+    specifier: ^1.0.4
+    version: 1.0.4
 
 devDependencies:
   '@sveltejs/adapter-auto':
@@ -944,6 +950,10 @@ packages:
     dependencies:
       '@types/estree': 1.0.5
     dev: true
+
+  /json-format-highlight@1.0.4:
+    resolution: {integrity: sha512-RqenIjKr1I99XfXPAml9G7YlEZg/GnsH7emWyWJh2yuGXqHW8spN7qx6/ME+MoIBb35/fxrMC9Jauj6nvGe4Mg==}
+    dev: false
 
   /kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}

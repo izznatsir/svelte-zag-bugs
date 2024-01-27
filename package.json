@@ -24,7 +24,9 @@
   "dependencies": {
     "@zag-js/color-picker": "^0.33.2",
     "@zag-js/core": "^0.33.2",
+    "@zag-js/dom-query": "^0.33.2",
     "@zag-js/types": "^0.33.2",
-    "form-serialize": "^0.7.2"
+    "form-serialize": "^0.7.2",
+    "json-format-highlight": "^1.0.4"
   }
 }
