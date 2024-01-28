@@ -3,13 +3,9 @@
   import { normalizeProps } from "$lib/normalize-props";
   import { useMachine } from "$lib/use-machine.svelte";
   import serialize from "form-serialize"
-  import { colorPickerControls } from "$lib/controls";
-  import { useControls } from "$lib/use-controls.svelte";
   import Toolbar from "$lib/components/Toolbar.svelte";
 
   const presets = ["#f47373", "#697689"]
-
-  const controls = useControls(colorPickerControls)
 
   const machine = useMachine(colorPicker.machine({ 
       id: "1", 
@@ -122,7 +118,7 @@
   </form>
 </main>
 
-<Toolbar {controls} {machine} state={machine.state} />
+<Toolbar {machine} state={machine.state} />
 
 {#snippet EyeDropIcon()}
 <svg
