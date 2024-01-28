@@ -6,23 +6,18 @@
 
   type UseMachineReturn = ReturnType<typeof useMachine<any, any, any>>;
 
-  const {
-    machine,
-    state: state_,
-  } = $props<{
+  const { machine, state } = $props<{
     machine: UseMachineReturn;
     state: UseMachineReturn["state"];
   }>();
 
   $inspect("machine.state", machine.state); // not stale
-  $inspect("state", state_); // stale
+  $inspect("state", state); // stale
 </script>
 
 <div class="toolbar">
   <nav>
-    <button data-active={dataAttr(true)}}
-      >Visualizer</button
-    >
+    <button data-active="{dataAttr(true)}}">Visualizer</button>
   </nav>
   <div data-content data-active={dataAttr(true)}>
     <div class="viz">
